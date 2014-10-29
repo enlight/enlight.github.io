@@ -10,11 +10,11 @@
 
 
 
-<link rel="canonical" href="http://vadim.macagon.com/drafts/build-a-ue4-compatible-static-lib-in-vs2013.html">
+<link rel="canonical" href="http://vadim.macagon.com/blog/2014/10/29/build-a-ue4-compatible-static-lib-in-vs2013/">
 
         <meta name="author" content="Vadim Macagon" />
         <meta name="keywords" content="ue4,c++" />
-        <meta name="description" content="Introduction This is the first tutorial in a two (or maybe three) part series that will explain how to integrate libraries not built by UBT into your UE4 games or plugins. In this tutorial we’re going to cover building of static libraries in VS2013, but most of this is ..." />
+        <meta name="description" content="Introduction This is the first tutorial in a two (or maybe three) part series that will explain how to integrate libraries not built by UBT into your UE4 games or plugins. This tutorial will cover building of static libraries in VS2013, but most of this will also apply when building ..." />
 
 
 
@@ -52,6 +52,9 @@ Vadim Macagon            </a>
                          <li><a href="http://vadim.macagon.com/page/projects/">
                              Projects
                           </a></li>
+                        <li class="active">
+                            <a href="http://vadim.macagon.com/category/programming/">Programming</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://vadim.macagon.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -69,7 +72,7 @@ Vadim Macagon            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://vadim.macagon.com/drafts/build-a-ue4-compatible-static-lib-in-vs2013.html"
+                    <a href="http://vadim.macagon.com/blog/2014/10/29/build-a-ue4-compatible-static-lib-in-vs2013/"
                        rel="bookmark"
                        title="Permalink to Build a UE4 compatible static lib in VS2013">
                         Build a <span class="caps">UE4</span> compatible static lib in <span class="caps">VS2013</span>
@@ -82,7 +85,7 @@ Vadim Macagon            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-10-16T18:50:00"> Thu 16 October 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-10-29T22:00:00"> Wed 29 October 2014</time>
     </span>
 
 
@@ -97,14 +100,13 @@ Vadim Macagon            </a>
                 <div class="section" id="introduction">
 <h2>Introduction</h2>
 <p>This is the first tutorial in a two (or maybe three) part series that will explain how to integrate
-libraries not built by <abbr title="Unreal Build Tool"><span class="caps">UBT</span></abbr> into your <span class="caps">UE4</span> games or plugins. In this
-tutorial we&#8217;re going to cover building of static libraries in <span class="caps">VS2013</span>, but most of this is also
-going to apply if you&#8217;re building dynamic&nbsp;libraries.</p>
-<p>In this tutorial we&#8217;ll build the <a class="reference external" href="http://pugixml.org/">pugixml</a> library, a small and lightweight
-<span class="caps">XML</span> processing library written in C++. I&#8217;ve chosen this library because it doesn&#8217;t have any
-dependencies, only consists of three source files, and is easy to configure, so we can focus on
-the details that are specifically relevant to Unreal Engine 4. The final <span class="caps">VS2013</span>
-project is available on <a class="reference external" href="https://github.com/enlight/">GitHub</a>.</p>
+libraries not built by <abbr title="Unreal Build Tool"><span class="caps">UBT</span></abbr> into your <span class="caps">UE4</span> games or plugins. This
+tutorial will cover building of static libraries in <span class="caps">VS2013</span>, but most of this will also apply when
+building dynamic&nbsp;libraries.</p>
+<p>We&#8217;re going to build the <a class="reference external" href="http://pugixml.org/">pugixml</a> library, a small and lightweight <span class="caps">XML</span> processing library written
+in C++. I&#8217;ve chosen this library because it doesn&#8217;t have any dependencies, only consists of three
+source files, and is easy to configure, so we can focus on the details that are specifically
+relevant to Unreal Engine 4. The final <span class="caps">VS2013</span> project is available on <a class="reference external" href="https://github.com/enlight/">GitHub</a>.</p>
 </div>
 <div class="section" id="configure-pugixml">
 <h2>Configure&nbsp;pugixml</h2>
@@ -142,9 +144,15 @@ project. To do&nbsp;so:</p>
 <li><p class="first">Right-click on the project in the <span class="caps">VS2013</span> <strong>Solution Explorer</strong>, select <strong>Properties</strong> from
 the context menu, and open the <strong>Configuration Manager</strong>&nbsp;dialog:</p>
 <img alt="Press on the Configuration Manager button on the Property Pages window." src="/images/pugixml/PugiXml-Property-Pages-01.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Add a new&nbsp;platform:</p>
 <img alt="Select New from the Active solution platform drop-down." src="/images/pugixml/PugiXml-Property-Pages-02.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Select <strong>x64</strong> from the drop-down, and press <strong><span class="caps">OK</span></strong>:</p>
 <img alt="Select x64 from the first drop-down." src="/images/pugixml/PugiXml-Property-Pages-03.png" />
@@ -166,9 +174,15 @@ you, however, future tutorials may assume you&#8217;ve set things up as describe
 <li><em>Intermediate Directory</em>: <strong>$(SolutionDir)Obj\Win32\$(Configuration)\</strong></li>
 <li><em>Target Name</em>: <strong>$(ProjectName)-Win32-$(Configuration)</strong></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Press the <strong>Apply</strong>&nbsp;button.</p>
 <img alt="None" src="/images/pugixml/PugiXml-Property-Pages-04.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Select <em>x64</em> from the <strong>Platform</strong>&nbsp;drop-down.</p>
 </li>
@@ -178,9 +192,15 @@ you, however, future tutorials may assume you&#8217;ve set things up as describe
 <li><em>Intermediate Directory</em>: <strong>$(SolutionDir)Obj\Win64\$(Configuration)\</strong></li>
 <li><em>Target Name</em>: <strong>$(ProjectName)-Win64-$(Configuration)</strong></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Press the <strong>Apply</strong>&nbsp;button.</p>
 <img alt="None" src="/images/pugixml/PugiXml-Property-Pages-05.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Select <em>All Platforms</em> from the <strong>Platform</strong>&nbsp;drop-down.</p>
 </li>
@@ -196,10 +216,16 @@ you, however, future tutorials may assume you&#8217;ve set things up as describe
 <li><p class="first">On the <strong>Configuration Properties/Code Generation</strong> page set <em>Enable C++ Exceptions</em> to <strong>No</strong>,
 and press the <strong>Apply</strong>&nbsp;button.</p>
 <img alt="None" src="/images/pugixml/PugiXml-Property-Pages-06.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">On the <strong>Configuration Properties/Language</strong> page set <em>Enable Run-Time Type Information</em> to <strong>No</strong>,
 and press the <strong>Apply</strong>&nbsp;button.</p>
 <img alt="None" src="/images/pugixml/PugiXml-Property-Pages-07.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 <li><p class="first">Return to the <strong>Configuration Properties/Code Generation</strong>&nbsp;page.</p>
 </li>
@@ -246,11 +272,26 @@ from the main menu in <span class="caps">VS2013</span>.</p>
 
             <li class="list-group-item"><a href="http://vadim.macagon.com/categories/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                 <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="http://vadim.macagon.com/category/programming/">
+                            <i class="fa fa-folder-open fa-lg"></i> programming
+                        </a>
+                    </li>
                 </ul>
             </li>
 
             <li class="list-group-item"><a href="http://vadim.macagon.com/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://vadim.macagon.com/tag/c/">
+                            c++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://vadim.macagon.com/tag/ue4/">
+                            ue4
+                        </a>
+                    </li>
                 </ul>
             </li>
     </ul>
@@ -263,7 +304,7 @@ from the main menu in <span class="caps">VS2013</span>.</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy;  Vadim Macagon
+         <div class="col-xs-10">&copy; 2014 Vadim Macagon
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
