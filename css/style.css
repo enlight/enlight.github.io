@@ -243,8 +243,7 @@ h1:hover a.heading-anchor, h2:hover a.heading-anchor, h3:hover a.heading-anchor,
       margin: 0 0 1.234em; }
       .post .post-content p a {
         color: #01579f;
-        padding-bottom: 2px;
-        word-break: break-all; }
+        padding-bottom: 2px; }
         .post .post-content p a:hover {
           text-decoration: underline; }
       .post .post-content p .caption {
@@ -271,8 +270,7 @@ h1:hover a.heading-anchor, h2:hover a.heading-anchor, h3:hover a.heading-anchor,
         margin: 0; }
       .post .post-content ul a, .post .post-content ol a {
         color: #01579f;
-        padding-bottom: 2px;
-        word-break: break-all; }
+        padding-bottom: 2px; }
         .post .post-content ul a:hover, .post .post-content ol a:hover {
           text-decoration: underline; }
   .post .tags {
