@@ -348,7 +348,9 @@ h1:hover a.heading-anchor, h2:hover a.heading-anchor, h3:hover a.heading-anchor,
     border-left-width: 0px; }
   #header .site-name {
     margin-bottom: 20px;
-    text-align: center; }
+    text-align: left; }
+    #header .site-name .description {
+      font-size: 0.9em; }
   #header #nav-menu {
     position: relative;
     text-align: center; }
@@ -816,7 +818,7 @@ figure.highlight,
   margin-bottom: 20px;
   padding: 10px;
   white-space: nowrap;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #ddd; }
   .post-nav a {
     display: inline-block;
     line-height: 1.5em;
