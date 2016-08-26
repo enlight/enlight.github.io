@@ -73,12 +73,22 @@ h1:hover a.heading-anchor, h2:hover a.heading-anchor, h3:hover a.heading-anchor,
       margin: 0;
       height: 0;
       overflow: hidden; }
-    #header .site-name #logo {
-      font-weight: bold;
-      font-size: 2em;
-      color: black; }
-      #header .site-name #logo span {
-        color: #777; }
+    #header .site-name #header-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      #header .site-name #header-links #logo {
+        flex: none;
+        font-weight: bold;
+        font-size: 2em;
+        color: black; }
+        #header .site-name #header-links #logo span {
+          color: #777; }
+      #header .site-name #header-links .spacer {
+        flex: 1 0 auto; }
+      #header .site-name #header-links .social-link {
+        flex: none;
+        display: none; }
     #header .site-name .description {
       margin: .2em 0 0;
       color: #999;
@@ -351,6 +361,8 @@ h1:hover a.heading-anchor, h2:hover a.heading-anchor, h3:hover a.heading-anchor,
     text-align: left; }
     #header .site-name .description {
       font-size: 0.9em; }
+    #header .site-name #header-links .social-link {
+      display: inline-block; }
   #header #nav-menu {
     position: relative;
     text-align: center; }
