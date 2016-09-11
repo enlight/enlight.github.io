@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://vadim.macagon.com/blog/2016/09/11/rebuilding-node-inspector-for-electron-v13x/</loc>
+        <lastmod>2016-09-11T12:31:22.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://vadim.macagon.com/blog/2014/10/29/build-a-ue4-compatible-static-lib-in-vs2013/</loc>
         <lastmod>2016-08-25T09:22:01.551Z</lastmod>
         <changefreq>weekly</changefreq>
